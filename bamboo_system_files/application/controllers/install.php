@@ -443,6 +443,92 @@ class Install extends Controller {
 
 			$updates .= "<li>Upgrade to 0.8.9 success.</li>";
 		}
+		
+		if ($version == '0.8.9')
+		{
+			$vendorcontacts_definition = array(
+										'id' 					=> array('type' => 'INT', 'constraint' => 11, 'auto_increment' => TRUE),
+										'vendor_id' 			=> array('type' => 'INT', 'constraint' => 11),
+										'first_name' 			=> array('type' => 'VARCHAR', 'constraint' => 25),
+										'last_name' 			=> array('type' => 'VARCHAR', 'constraint' => 25),
+										'title'		 			=> array('type' => 'VARCHAR', 'constraint' => 75),
+										'email' 				=> array('type' => 'VARCHAR', 'constraint' => 127),
+										'phone' 				=> array('type' => 'VARCHAR', 'constraint' => 20),
+										'password' 				=> array('type' => 'VARCHAR', 'constraint' => 100),
+										'access_level' 			=> array('type' => 'TINYINT', 'constraint' => 1, 'default' => 0),
+										'supervisor' 			=> array('type' => 'INT', 'constraint' => 11),
+										'last_login' 			=> array('type' => 'INT', 'constraint' => 11),
+										'password_reset'		=> array('type' => 'VARCHAR', 'constraint' => 12)
+										);
+	
+			$this->dbforge->add_field($vendorcontacts_definition);
+			$this->dbforge->add_key('id', TRUE);
+			$this->dbforge->create_table('vendorcontacts', TRUE);
+			
+			$vendors_definition = array(
+										'id' 					=> array('type' => 'INT', 'constraint' => 11, 'auto_increment' => TRUE),
+										'name' 					=> array('type' => 'VARCHAR', 'constraint' => 75),
+										'address1' 				=> array('type' => 'VARCHAR', 'constraint' => 100),
+										'address2' 				=> array('type' => 'VARCHAR', 'constraint' => 100),
+										'city' 					=> array('type' => 'VARCHAR', 'constraint' => 50),
+										'province' 				=> array('type' => 'VARCHAR', 'constraint' => 25),
+										'country' 				=> array('type' => 'VARCHAR', 'constraint' => 25),
+										'postal_code' 			=> array('type' => 'VARCHAR', 'constraint' => 10),
+										'website' 				=> array('type' => 'VARCHAR', 'constraint' => 150),
+										'vendor_notes' 			=> array('type' => 'MEDIUMTEXT'),
+										'tax_code' 				=> array('type' => 'VARCHAR', 'constraint' => 75)
+			);
+	
+			$this->dbforge->add_field($vendors_definition);
+			$this->dbforge->add_key('id', TRUE);
+			$this->dbforge->create_table('vendors', TRUE);
+			
+			$expenses_definition = array(
+										'id' 					=> array('type' => 'INT', 'constraint' => 11, 'auto_increment' => TRUE),
+										'client_id' 			=> array('type' => 'INT', 'constraint' => 11),
+										'vendor_id' 			=> array('type' => 'INT', 'constraint' => 11),
+										'expense_number' 		=> array('type' => 'VARCHAR', 'constraint' => 255),
+										'expense_date' 			=> array('type' => 'DATE'),
+										'tax1_desc' 			=> array('type' => 'VARCHAR', 'constraint' => 50),
+										'tax1_rate'				=> array('type' => 'DECIMAL', 'constraint' => '6,3'),
+										'tax2_desc' 			=> array('type' => 'VARCHAR', 'constraint' => 50),
+										'tax2_rate'				=> array('type' => 'DECIMAL', 'constraint' => '6,3'),
+										'expense_note' 			=> array('type' => 'TEXT', 'constraint' => 2000)
+										);
+	
+			$this->dbforge->add_field($expenses_definition);
+			$this->dbforge->add_key('id', TRUE);
+			$this->dbforge->create_table('expenses', TRUE);
+	
+			$expense_items_definition = array(
+										'id' 					=> array('type' => 'INT', 'constraint' => 11, 'auto_increment' => TRUE),
+										'expense_id' 			=> array('type' => 'INT', 'constraint' => 11, 'default' => 0),
+										'amount' 				=> array('type' => 'DECIMAL', 'constraint' => '11,2', 'default' => 0),
+										'quantity' 				=> array('type' => 'DECIMAL', 'constraint' => '7,2', 'default' => 1),
+										'item_description' 		=> array('type' => 'MEDIUMTEXT'),
+										'taxable' 				=> array('type' => 'INT', 'constraint' => 1, 'default' => 1)
+										);
+	
+			$this->dbforge->add_field($expense_items_definition);
+			$this->dbforge->add_key('id', TRUE);
+			$this->dbforge->create_table('expense_items', TRUE);
+
+			$field = array(
+							'expense_note_default' => array(
+																'type' => 'VARCHAR', 
+																'constraint' => 255
+															)
+						);
+
+			$this->dbforge->add_column('settings', $field);
+			
+			
+			$this->db->set('bambooinvoice_version', '0.9.1');
+			$this->db->where('id', 1);
+			$this->db->update('settings');
+
+			$updates .= "<li>Upgrade to 0.9.1 success.</li>";			
+		}
 
 		$updates .= '</ul>';
 
