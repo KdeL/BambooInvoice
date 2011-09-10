@@ -17,7 +17,7 @@ $lang['ut_string']			= 'Stringa';
 $lang['ut_array']			= 'Array';
 $lang['ut_object']			= 'Oggetto';
 $lang['ut_resource']		= 'Risorsa';
-$lang['ut_null']			= 'Null'
+$lang['ut_null']			= 'Null';
 
 
 /* End of file unit_test_lang.php */
