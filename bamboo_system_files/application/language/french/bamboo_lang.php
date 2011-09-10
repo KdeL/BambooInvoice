@@ -7,6 +7,7 @@ $lang['accounts_admin_account_delete_fail'] = 'Problème lors de la suppression 
 
 $lang['actions_cancel'] = 'Annuler';
 $lang['actions_change'] = 'Changer';
+$lang['actions_create_expense'] = 'Create Expense'; // TO BE TRANSLATED
 $lang['actions_create_invoice'] = 'Créer une facture';
 $lang['actions_delete'] = 'Supprimer';
 $lang['actions_edit'] = 'Modifier';
@@ -18,6 +19,7 @@ $lang['bambooinvoice_version'] = 'Version';
 
 $lang['bambooinvoice_logo'] = '<span class=\'bamboo_invoice_bam\'>Bamboo</span><span class=\'bamboo_invoice_inv\'>Invoice</span>';
 $lang['bambooinvoice_version'] = 'Version';
+
 $lang['clients_add_contact'] = 'Ajouter un contact';
 $lang['clients_address1'] = 'Ligne adresse 1';
 $lang['clients_address2'] = 'Ligne adresse 2';
@@ -68,6 +70,48 @@ $lang['error_problem_editing'] = 'Il y a un problème à l\'édition de cette fa
 $lang['error_problem_inserting'] = 'Problème à l\'insertion';
 $lang['error_problem_saving'] = 'Il y a eu un problème à sauvegarder la facture avant de l\'expédier.';
 $lang['error_selection'] = 'votre sélection ne contient pas de facture.';
+
+$lang['expense_add_note'] = 'Add Note'; // TO BE TRANSLATED
+$lang['expense_all_clients'] = 'All Clients'; // TO BE TRANSLATED
+$lang['expense_all_expenses'] = 'All Expenses'; // TO BE TRANSLATED
+$lang['expense_all_vendors'] = 'All Vendors'; // TO BE TRANSLATED
+$lang['expense_amount'] = 'Amount'; // TO BE TRANSLATED
+$lang['expense_amount_item'] = 'Amount'; // TO BE TRANSLATED
+$lang['expense_amount_error'] = 'Please enter an amount'; // TO BE TRANSLATED
+$lang['expense_client'] = 'Client'; // TO BE TRANSLATED
+$lang['expense_client_id'] = 'Client Id'; // TO BE TRANSLATED
+$lang['expense_date_issued'] = 'Date Expensed'; // TO BE TRANSLATED
+$lang['expense_date_expensed_full'] = 'Date Expensed (in format YYYY-MM-DD)'; // TO BE TRANSLATED
+$lang['expense_expense'] = 'Expense'; // TO BE TRANSLATED
+$lang['expense_expense_edit_success'] = 'Expense successfully edited'; // TO BE TRANSLATED
+$lang['expense_expense_id'] = 'Expense ID'; // TO BE TRANSLATED
+$lang['expense_item'] = 'Item'; // TO BE TRANSLATED
+$lang['expense_item_description'] = 'Item Description'; // TO BE TRANSLATED
+$lang['expense_last_used'] = 'last number used '; // TO BE TRANSLATED
+$lang['expense_new_expense'] = 'New Expense'; // TO BE TRANSLATED
+$lang['expense_new_expense_at'] = 'New expense at'; // TO BE TRANSLATED
+$lang['expense_new_expense_error'] = 'New Expense Error'; // TO BE TRANSLATED
+$lang['expense_new_item'] = 'New Item'; // TO BE TRANSLATED
+$lang['expense_no_expense_match'] = 'There are no expenses in the system that match that criteria'; // TO BE TRANSLATED
+$lang['expense_not_taxable'] = 'Not Taxable'; // TO BE TRANSLATED
+$lang['expense_not_unique'] = 'This expense number is not unique'; // TO BE TRANSLATED
+$lang['expense_note'] = 'Expense Note'; // TO BE TRANSLATED
+$lang['expense_number'] = 'Expense Number'; // TO BE TRANSLATED
+$lang['expense_or_new_vendor'] = 'or enter a new vendor'; // TO BE TRANSLATED
+$lang['expense_premenently_delete'] = 'You are about to <strong class="error">permanently delete</strong> expense'; // TO BE TRANSLATED
+$lang['expense_quantity'] = 'Quantity'; // TO BE TRANSLATED
+$lang['expense_save_edited_expense'] = 'Save Edited Expense'; // TO BE TRANSLATED
+$lang['expense_select_client'] = 'Select client'; // TO BE TRANSLATED
+$lang['expense_select_vendor'] = 'Select vendor'; // TO BE TRANSLATED
+$lang['expense_sure_delete'] = 'Are you sure you want to do this? '; // TO BE TRANSLATED
+$lang['expense_tax'] = 'Tax'; // TO BE TRANSLATED
+$lang['expense_taxable'] = 'Taxable'; // TO BE TRANSLATED
+$lang['expense_tax_status'] = 'Tax Status'; // TO BE TRANSLATED
+$lang['expense_total'] = 'Total'; // TO BE TRANSLATED
+$lang['expense_tax_exempt'] = 'Note: This vendor is tax exempt'; // TO BE TRANSLATED
+$lang['expense_vendor_id'] = 'Vendor Id'; // TO BE TRANSLATED
+$lang['expense_vendor'] = 'Vendor'; // TO BE TRANSLATED
+
 
 $lang['invoice_add_note'] = 'Ajouter note';
 $lang['invoice_all_clients'] = 'Tous les clients';
@@ -179,18 +223,24 @@ $lang['menu_catchphrase_nobreak'] = 'Simple, Magnifique, Logiciel libre, Facture
 $lang['menu_changelog'] = 'Changelog';
 $lang['menu_clients'] = 'Clients';
 $lang['menu_credits'] = 'Crédits';
+$lang['menu_delete_expense'] = 'Delete Expense'; // TO BE TRANSLATED
 $lang['menu_delete_invoice'] = 'Supprimer';
+$lang['menu_duplicate_expense'] = 'Duplicate Expense'; // TO BE TRANSLATED
 $lang['menu_duplicate_invoice'] = 'Duplicata de facture';
 $lang['menu_did_you_know'] = 'Saviez-vous ?';
+$lang['menu_edit_expense'] = 'Edit Expense'; // TO BE TRANSLATED
 $lang['menu_edit_invoice'] = 'Modifier';
 $lang['menu_email_invoice'] = 'Facture -> courriel';
 $lang['menu_enter_payment'] = 'Entrer un paiement';
+$lang['menu_expenses'] = 'Expenses'; // TO BE TRANSLATED
 $lang['menu_faq'] = 'Foire aux questions';
 $lang['menu_generate_pdf'] = 'Générer PDF';
 $lang['menu_help'] = 'Aide';
+$lang['menu_expense_summary'] = 'Expense Summary'; // TO BE TRANSLATED
 $lang['menu_invoice_summary'] = 'Les factures';
 $lang['menu_invoices'] = 'Factures';
 $lang['menu_logout'] = 'Quitter';
+$lang['menu_new_expense'] = 'New Expense'; // TO BE TRANSLATED
 $lang['menu_new_invoice'] = 'Nouvelle facture';
 $lang['menu_print_invoice'] = 'Imprimer';
 $lang['menu_private_note'] = 'Note privé';
@@ -200,6 +250,7 @@ $lang['menu_root_system'] = 'Racine';
 $lang['menu_see_also'] = 'Voyez aussi';
 $lang['menu_settings'] = 'Paramètres';
 $lang['menu_utilties'] = 'Utilities';
+$lang['menu_vendors'] = 'Vendors'; //to be translated
 
 $lang['notice_english_only'] = 'Disponible en anglais seulement'; 
 $lang['notice_generated_by'] = 'Généré par';
@@ -252,6 +303,48 @@ $lang['utilities_up_to_date'] = "Vous utilisez la version la plus récente de Ba
 $lang['utilities_connection_failed'] = "La connexion à http://bambooinvoice.org n\'a pu être établie.";
 $lang['utilities_version_check'] = "Nouvelle version détécté";
 $lang['utilities_version_undetermined'] = "La version n\'a pu être determiné.";
+
+$lang['vendors_add_contact'] = 'Add Contact'; // TO BE TRANSLATED
+$lang['vendors_address1'] = 'Address1'; // TO BE TRANSLATED
+$lang['vendors_address2'] = 'Address2'; // TO BE TRANSLATED
+$lang['vendors_assigned_to_them'] = 'expenses assigned to them. You are about to <strong class="error">permanently delete</strong> this vendor, and <strong class="error">every expense associated with them</strong>. Are you sure you want to do this?'; // TO BE TRANSLATED
+$lang['vendors_cancel_add_contact'] = 'Cancel Add Contact'; // TO BE TRANSLATED
+$lang['vendors_city'] = 'City'; // TO BE TRANSLATED
+$lang['vendors_vendor_has'] = 'This vendor has '; // TO BE TRANSLATED
+$lang['vendors_vendors_registered'] = 'vendor registered'; // TO BE TRANSLATED
+$lang['vendors_contact_add'] = 'Unable to add this contact. Please note that First Name, Last Name and a valid email are required.'; // TO BE TRANSLATED
+$lang['vendors_contact_delete_fail'] = 'Unable to delete this contact.'; // TO BE TRANSLATED
+$lang['vendors_contacts'] = 'Contacts'; // TO BE TRANSLATED
+$lang['vendors_country'] = 'Country'; // TO BE TRANSLATED
+$lang['vendors_create_new_vendor'] = 'Create New Vendor'; // TO BE TRANSLATED
+$lang['vendors_created'] = 'New Vendor Added'; // TO BE TRANSLATED
+$lang['vendors_delete_all_expenses'] = 'Delete vendor and all expenses'; // TO BE TRANSLATED
+$lang['vendors_delete_vendor'] = 'Delete Vendor'; // TO BE TRANSLATED
+$lang['vendors_delete_contact'] = 'Delete Contact'; // TO BE TRANSLATED
+$lang['vendors_deleted'] = 'Vendor successfully deleted'; // TO BE TRANSLATED
+$lang['vendors_deleted_error'] = 'Vendor could not be deleted';  // TO BE TRANSLATED
+$lang['vendors_edit_vendor'] = 'Edit Vendor'; // TO BE TRANSLATED
+$lang['vendors_edit_contact'] = 'Edit Contact'; // TO BE TRANSLATED
+$lang['vendors_edited'] = 'Vendor edited successfully'; // TO BE TRANSLATED
+$lang['vendors_edited_contact_info'] = 'Contact information successfully updated'; // TO BE TRANSLATED
+$lang['vendors_email'] = 'Email'; // TO BE TRANSLATED
+$lang['vendors_first_name'] = 'First Name'; // TO BE TRANSLATED
+$lang['vendors_id'] = 'Vendor Id'; // TO BE TRANSLATED
+$lang['vendors_last_name'] = 'Last Name'; // TO BE TRANSLATED
+$lang['vendors_name'] = 'Vendor Name'; // TO BE TRANSLATED
+$lang['vendors_new_contact_fail'] = 'Unable to add this contact. Please note that First Name, Last Name and a valid email are required.'; // TO BE TRANSLATED
+$lang['vendors_no_expense_listed'] = 'There are no contacts currently listed for'; // TO BE TRANSLATED
+$lang['vendors_notes'] = 'Notes'; // TO BE TRANSLATED
+$lang['vendors_phone'] = 'Phone'; // TO BE TRANSLATED
+$lang['vendors_postal'] = 'Postal Code'; // TO BE TRANSLATED
+$lang['vendors_province'] = 'Province/State'; // TO BE TRANSLATED
+$lang['vendors_save_vendor'] = 'Save Vendor'; // TO BE TRANSLATED
+$lang['vendors_title'] = 'Title'; // TO BE TRANSLATED
+$lang['vendors_to'] = 'to'; // TO BE TRANSLATED
+$lang['vendors_update_vendor'] = 'Update Vendor'; // TO BE TRANSLATED
+$lang['vendors_website'] = 'Website'; // TO BE TRANSLATED
+$lang['vendors_you_have'] = 'You have '; // TO BE TRANSLATED
+
 
 $lang['menu_did_you_know_quotes'] = array(
 					"BambooINVOICE est sous licence GPL.",
