@@ -22,7 +22,7 @@ function getInvoices (elm) {
 							$('invoiceListings').style.position = "relative";
 							$('invoiceListings').style.left = "0";
 							$('invoiceListings').style.visibility = "visible";
-							drawTable(invoiceArray);
+							drawInvoiceTable(invoiceArray);
 						} else {
 							$('invoiceListings').style.position = "absolute";
 							$('invoiceListings').style.left = "-5000px";
@@ -31,7 +31,24 @@ function getInvoices (elm) {
 					}})
 }
 
-function drawTable(invoiceArray) {
+function getExpenses (elm) {
+	newhref = radiovalue('filter', 'status') + '/' + $('filter').vendor_id.options[$('filter').vendor_id.options.selectedIndex].value;
+	new Ajax.Request(base_url+'expenses/retrieveExpenses/', {postBody: Form.serialize($('filter')), onComplete: function(response) {
+						if (response.responseText != '') {
+							expenseArray = eval('(' + response.responseText + ')');
+							$('invoiceListings').style.position = "relative";
+							$('invoiceListings').style.left = "0";
+							$('invoiceListings').style.visibility = "visible";
+							drawExpenseTable(expenseArray);
+						} else {
+							$('invoiceListings').style.position = "absolute";
+							$('invoiceListings').style.left = "-5000px";
+							$('invoiceListings').style.visibility = "hidden";
+						}
+					}})
+}
+
+function drawInvoiceTable(invoiceArray) {
 
 	var amountTotal = 0;
 	var row = document.createElement('tr');
@@ -138,6 +155,107 @@ function drawTable(invoiceArray) {
 			container.appendChild(theLink);
 			row.appendChild(container);
 	
+			tbody.appendChild(row);
+		}
+	}
+
+	document.getElementById('invoiceListings').replaceChild(tbody, $('invoiceRows'));
+	stripe();
+}
+
+function drawExpenseTable(expenseArray) {
+
+	var amountTotal = 0;
+	var row = document.createElement('tr');
+	
+	var tbody = document.createElement('tbody');
+	tbody.setAttribute ("id", "invoiceRows");
+
+	var container = document.createElement('th');
+	var theData = document.createTextNode(lang_expense);
+	container.className="invNum";
+	container.appendChild(theData);
+	row.appendChild(container);
+
+	var container = document.createElement('th');
+	var theData = document.createTextNode(lang_expense_date_issued);
+	container.className="dateIssued";
+	container.appendChild(theData);
+	row.appendChild(container);
+	
+	var container = document.createElement('th');
+	var theData = document.createTextNode(lang_vendor_name);
+	container.className="clientName";
+	container.appendChild(theData);
+	row.appendChild(container);
+	
+	var container = document.createElement('th');
+	var theData = document.createTextNode(lang_amount);
+	container.className="amount";
+	container.appendChild(theData);
+	row.appendChild(container);
+	
+	tbody.appendChild(row);
+	
+	for(i = 0; i < expenseArray['expenses'].length; i++) {
+
+		// check the last month... if its different, inject this
+		// separator into the code
+		expense_id = expenseArray['expenses'][i].expenseId;
+		if (expense_id.indexOf('monthbreak') > -1) {
+
+			var row = document.createElement('tr');
+			var container = document.createElement('td');
+			container.setAttribute('colspan','5');
+			container.setAttribute('class','monthbreak');
+
+			var hr = document.createTextNode(expense_id.substring(10));
+
+			container.appendChild(hr);
+			row.appendChild(container);
+			tbody.appendChild(row);
+	
+		} else {
+		
+			var row = document.createElement('tr');
+	
+			var container = document.createElement('td');
+			var theLink = document.createElement('a');
+			theLink.setAttribute ('href', base_url+'expenses/view/'+expenseArray['expenses'][i].expenseId);
+			var theData = document.createTextNode(expenseArray['expenses'][i].expense_number);
+			theLink.appendChild(theData);
+			container.appendChild(theLink);
+			row.appendChild(container);
+	
+			var container = document.createElement('td');
+			var theLink = document.createElement('a');
+			theLink.setAttribute ('href', base_url+'expenses/view/'+expenseArray['expenses'][i].expenseId);
+			var theData = document.createTextNode(expenseArray['expenses'][i].expense_date);
+			last_date_issued = theData;
+			theLink.appendChild(theData);
+			container.appendChild(theLink);
+			row.appendChild(container);
+			
+			var container = document.createElement('td');
+			var theLink = document.createElement('a');
+			theLink.setAttribute ('href', base_url+'expenses/view/'+expenseArray['expenses'][i].expenseId);
+			vendorName = expenseArray['expenses'][i].vendorName;
+			vendorName = vendorName.replace(/&amp;/g, "&");
+			vendorName = vendorName.replace(/&quot;/g, "\"");
+			var theData = document.createTextNode(vendorName);
+			container.className="cName"; // IE doesn't accept setAttribute on a class... sigh...
+			theLink.appendChild(theData);
+			container.appendChild(theLink);
+			row.appendChild(container);
+	
+			var container = document.createElement('td');
+			var theLink = document.createElement('a');
+			theLink.setAttribute ('href', base_url+'expenses/view/'+expenseArray['expenses'][i].expenseId);
+			var theData = document.createTextNode(bi_currency_symbol+expenseArray['expenses'][i].amount);
+			theLink.appendChild(theData);
+			container.appendChild(theLink);
+			row.appendChild(container);
+			
 			tbody.appendChild(row);
 		}
 	}

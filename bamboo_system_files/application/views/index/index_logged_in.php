@@ -1,6 +1,7 @@
 <?php
 $this->load->view('header');
 $this->load->view('invoices/invoice_new');
+$this->load->view('expenses/expense_new');
 ?>
 <h2><?php echo $page_title;?></h2>
 
@@ -18,6 +19,11 @@ $this->load->view('invoices/invoice_new');
 	<li><a href="<?php echo site_url('settings')?>" class="root_settings"><?php echo $this->lang->line('menu_settings');?></a></li>
 	<li><a href="<?php echo site_url('accounts')?>" class="root_clients"><?php echo $this->lang->line('menu_accounts');?></a></li>
 	<li><a href="<?php echo site_url('utilities')?>" class="root_utilities"><?php echo $this->lang->line('menu_utilities');?></a></li>
+</ul>
+<ul class="control_panel">
+	<li><a href="<?php echo site_url('expenses')?>" class="root_expenses"><?php echo $this->lang->line('menu_expenses');?></a></li>
+	<li><a href="<?php echo site_url('vendors')?>" class="root_vendors"><?php echo $this->lang->line('menu_vendors');?></a></li>
+	<li><a href="<?php echo site_url('expensereports')?>" class="root_expensereports"><?php echo $this->lang->line('menu_expense_reports');?></a></li>
 </ul>
 
 <div class="clearer"></div>

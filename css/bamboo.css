@@ -41,6 +41,15 @@
 .control_panel .root_help {
 	background: url(../img/root_sys_help.png) no-repeat center center;
 }
+.control_panel .root_expenses {
+	background: url(../img/root_sys_expenses.png) no-repeat center center;
+}
+.control_panel .root_vendors {
+	background: url(../img/root_sys_vendors.png) no-repeat center center;
+}
+.control_panel .root_expensereports {
+	background: url(../img/root_sys_expensereports.png) no-repeat center center;
+}
 .control_panel li {
 	margin: 10px;
 	float: left;
@@ -214,6 +223,12 @@ input {
 #invoice_action_menu a.summaryinv {
 	background: url(../img/table.png) no-repeat left center;
 }
+#invoice_action_menu a.addexp {
+	background: url(../img/table_add.png) no-repeat left center;
+}
+#invoice_action_menu a.summaryexp {
+	background: url(../img/table.png) no-repeat left center;
+}
 #invoice_action_menu a.clientsummary {
 	background: url(../img/group_side.png) no-repeat left center;
 }
@@ -369,6 +384,10 @@ input {
 	white-space: nowrap;
 	width: 100px;
 }
+.vendoreditdelete {
+	white-space: nowrap;
+	width: 100px;
+}
 /*
 * footer styles
 */
@@ -430,13 +449,13 @@ input {
 fieldset input {
 	border: 0;
 }
-#enterPayment label span, #newClientForm label span, #loginform label span, #clientcontact label span {
+#enterPayment label span, #newClientForm label span, #newVendorForm label span, #loginform label span, #clientcontact label span {
 	display: block;
 	float: left;
 	width: 150px;
 	margin: 0;
 }
-#newClientForm label, #loginform label {
+#newClientForm label, #newVendorForm label, #loginform label {
 	line-height: 150%;
 }
 .required {
@@ -523,4 +542,63 @@ fieldset input {
 }
 #admin_list li {
 	line-height: 16px;
+}
+
+/*
+* new expense div
+*/
+.expense_items label span {
+	display:none;
+}
+
+.expense_items td p {
+	font-size: 100%;
+	margin: 0 0 10px 0;
+}
+
+.expense_items td {
+	padding-top: 5px;
+	vertical-align: top;
+	display: table-cell;
+}
+
+
+.expense_items {
+	width:99%; /* 100% causes IE to caluculate borders wrong and give it strange clearing and floating */
+	padding: 0;
+	border-collapse: collapse;
+	margin: 0 auto 15px auto;
+}
+.expense_items th {
+	color: #FFFFFF!important;
+	background: url(../img/grey_stripe_tile.jpg);
+	padding: 3px;
+	text-align: left;
+	font-weight: bold;
+}
+
+#newexpense {
+	background: #E8EEF6 url(../img/group_64.png) no-repeat left center;
+	width:99%;
+	margin:0;
+	padding: 0;
+}
+#newexpense p, #newexpense h2 {
+	padding: 0 0 0 128px;
+	margin: 0 10px 10px 10px;
+}
+#newexpense div {
+	background: #5E88B6;
+	margin: 0;
+}
+#newexpense div input {
+	margin: 3px 0;
+}
+#newexpense div p {
+	line-height: 25px;
+	height: 25px;
+	margin: 0;
+}
+#newexpense form {
+	margin:0;
 }

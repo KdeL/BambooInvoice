@@ -243,6 +243,57 @@ $this->load->view('header');
 
 				</div>
 
+				<div class="section" id="expense_settings">
+
+					<p>
+						<label for="expense_note_default"><span><?php echo $this->lang->line('settings_default_note');?> <br /><?php echo $this->lang->line('settings_note_max_chars');?></span></label>
+						<textarea name="expense_note_default" id="expense_note_default" cols="50" rows="5"><?php echo ($this->validation->expense_note_default) ? ($this->validation->expense_note_default) : str_replace('\n', "\n", ($row->expense_note_default));?></textarea></label><br /><?php echo $this->validation->expense_note_default_error; ?>
+					</p>
+
+					<p>
+						<label for="tax_code"><span><?php echo $this->lang->line('settings_tax_code');?></span></label>
+						<input class="requiredfield" name="tax_code" type="text" id="tax_code" size="50" value="<?php echo ($this->validation->tax_code) ? ($this->validation->tax_code) : ($row->tax_code);?>" />
+						<?php echo $this->validation->tax_code_error; ?>
+					</p>
+
+					<p>
+						<label for="currency_type"><span><?php echo $this->lang->line('settings_currency_type');?></span></label>
+						<input class="requiredfield" name="currency_type" type="text" id="currency_type" size="20" value="<?php echo ($this->validation->currency_type) ? ($this->validation->currency_type) : ($row->currency_type);?>" />
+						<?php echo $this->validation->currency_type_error; ?>
+					</p>
+
+					<p>
+						<label for="currency_symbol"><span><?php echo $this->lang->line('settings_currency_symbol');?></span></label>
+						<input class="requiredfield" name="currency_symbol" type="text" id="currency_symbol" size="20" value="<?php echo ($this->validation->currency_symbol) ? ($this->validation->currency_symbol) : ($row->currency_symbol);?>" />
+						(ie: $ or &#163; or &#165;) <?php echo $this->validation->currency_symbol_error; ?>
+					</p>
+
+					<p>
+						<label for="days_payment_due"><span><?php echo $this->lang->line('settings_days_payment_due');?></span></label>
+						<input class="requiredfield" name="days_payment_due" type="text" id="days_payment_due" size="20" value="<?php echo ($this->validation->days_payment_due) ? ($this->validation->days_payment_due) : ($row->days_payment_due);?>" />
+						(ie: 30) <?php echo $this->validation->days_payment_due_error; ?>
+					</p>
+
+					<p>
+						<label for="tax1_desc"><span><?php echo $this->lang->line('invoice_tax1_description');?></span></label>
+						<input name="tax1_desc" type="text" id="tax1_desc" value="<?php echo ($this->validation->tax1_desc) ? ($this->validation->tax1_desc) : ($row->tax1_desc);?>" />
+						<?php echo $this->validation->tax1_desc_error; ?><br />
+						<label for="tax1_rate"><span><?php echo $this->lang->line('invoice_tax1_rate');?> </span></label>
+						<input name="tax1_rate" type="text" id="tax1_rate" value="<?php echo ($this->validation->tax1_rate) ? ($this->validation->tax1_rate) : ($row->tax1_rate);?>" />
+						(ie: 6.25) <?php echo $this->validation->tax1_rate_error; ?>
+					</p>
+
+					<p>
+						<label for="tax2_desc"><span><?php echo $this->lang->line('invoice_tax2_description');?></span></label>
+						<input name="tax2_desc" type="text" id="tax2_desc" value="<?php echo ($this->validation->tax2_desc) ? ($this->validation->tax2_desc) : ($row->tax2_desc);?>" />
+						<?php echo $this->validation->tax2_desc_error; ?><br />
+						<label for="tax2_rate"><span><?php echo $this->lang->line('invoice_tax2_rate');?> </span></label>
+						<input name="tax2_rate" type="text" id="tax2_rate" value="<?php echo ($this->validation->tax2_rate) ? ($this->validation->tax2_rate) : ($row->tax2_rate);?>" />
+						(ie: 5.0) <?php echo $this->validation->tax2_rate_error; ?>
+					</p>
+
+				</div>
+
 				<div class="section" id="advanced_settings">
 
 					<div class="logo_holder">

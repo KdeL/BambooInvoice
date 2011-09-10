@@ -75,6 +75,9 @@ lang_quantity = new String("<?php echo ($this->lang->line('invoice_quantity'));?
 lang_work_description = new String("<?php echo ($this->lang->line('invoice_work_description'));?>");
 lang_taxable = new String("<?php echo ($this->lang->line('invoice_taxable'));?>");
 lang_amount = new String("<?php echo ($this->lang->line('invoice_amount'));?>");
+lang_expense = new String("<?php echo ($this->lang->line('expense_expense'));?>");
+lang_expense_date_issued = new String("<?php echo ($this->lang->line('expense_date_issued'));?> ");
+lang_vendor_name = new String("<?php echo ($this->lang->line('vendors_name'));?>");
 </script>
 <?php
 	if (isset($extraHeadContent)) {
@@ -105,9 +108,14 @@ lang_amount = new String("<?php echo ($this->lang->line('invoice_amount'));?>");
 
 			<li><?php echo anchor('', $this->lang->line('menu_root_system'), array('class' => 'dashboard'));?></li>
 			<li><?php echo anchor('invoices', $this->lang->line('menu_invoice_summary'), array('class' => 'summaryinv'));?></li>
+			<li><?php echo anchor('expenses', $this->lang->line('menu_expense_summary'), array('class' => 'summaryinv'));?></li>
 
 			<?php if (isset($clientList)): ?>
 				<li><?php echo anchor('invoices/newinvoice_first', $this->lang->line('menu_new_invoice'), array('class' => 'addinv createInvoice', 'id' => 'addinv'));?></li>
+			<?php endif; ?>
+
+			<?php if (isset($vendorList)): ?>
+				<li><?php echo anchor('expenses/newexpense_first', $this->lang->line('menu_new_expense'), array('class' => 'addexp createExpense', 'id' => 'addexp'));?></li>
 			<?php endif; ?>
 
 			<?php if (isset($invoiceOptions)): ?>
@@ -130,6 +138,18 @@ lang_amount = new String("<?php echo ($this->lang->line('invoice_amount'));?>");
 
 			<li><?php echo anchor('invoices/delete/'.$row->id, $this->lang->line('menu_delete_invoice'), array('class'=>'lbOn deleteConfirm'));?></li>
 
+			<?php endif; ?>
+			
+			<?php if (isset($expenseOptions)): ?>
+				<li><?php echo anchor('expenses/edit/'.$row->id, $this->lang->line('menu_edit_expense'), array('class' => 'invedit'));?></li>
+
+				<li><?php echo anchor('expenses/duplicate/'.$row->id, $this->lang->line('menu_duplicate_expense'), array('class' => 'invduplicate'));?></li>
+
+				<li><?php echo anchor('expenses/delete/'.$row->id, $this->lang->line('menu_delete_expense'), array('class'=>'lbOn deleteConfirm'));?></li>
+			<?php endif; ?>
+
+			<?php if (isset($expenseReportOptions)): ?>
+				<li><?php echo anchor('expensereports/pdf/'.$startDate.'/'.$endDate.'/'.$client_id.'/'.$vendor_id, $this->lang->line('menu_generate_pdf'), array('class' => 'emailpdf'));?></li>
 			<?php endif; ?>
 
 		<?php else: ?>

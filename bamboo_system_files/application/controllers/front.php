@@ -12,7 +12,8 @@ class Front extends MY_Controller {
 	function index()
 	{
 		$this->load->model('clients_model');
-
+		$this->load->model('vendors_model');
+		
 		if ($this->db->conn_id == "")
 		{
 			show_error("BambooInvoice could not connect to your database with the information provided in bamboo_system_files/application/config/database.php");
@@ -30,10 +31,14 @@ class Front extends MY_Controller {
 		{
 			$data['page_title'] = $this->lang->line('menu_root_system');
 			$data['extraHeadContent'] = "<script type=\"text/javascript\" src=\"" . base_url()."js/newinvoice.js\"></script>\n";
-
+			$data['extraHeadContent'] .= "<script type=\"text/javascript\" src=\"" . base_url()."js/newexpense.js\"></script>\n";
+			
 			// for the new invoice generation dropdown
 			$data['clientList'] = $this->clients_model->getAllClients();
 
+			// for the new expense generation dropdown
+			$data['vendorList'] = $this->vendors_model->getAllVendors();
+			
 			// is there a new version available?
 			$this->load->model('utilities_model');
 			$status = $this->utilities_model->_version_check();

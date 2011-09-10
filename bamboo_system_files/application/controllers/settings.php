@@ -55,6 +55,7 @@ class Settings extends MY_Controller {
 							'primary_contact' => $this->input->post('primary_contact'),
 							'primary_contact_email' => $this->input->post('primary_contact_email'),
 							'invoice_note_default' => $this->input->post('invoice_note_default'),
+							'expense_note_default' => $this->input->post('expense_note_default'),
 							'currency_type' => $this->input->post('currency_type'),
 							'currency_symbol' => $this->input->post('currency_symbol'),
 							'days_payment_due' => (int) $this->input->post('days_payment_due'),
@@ -144,6 +145,7 @@ class Settings extends MY_Controller {
 		$rules['password_confirm']	= "matches[password]";
 		$rules['logo'] 				= "trim|prep_for_form|max_length[50]";
 		$rules['invoice_note_default'] = "trim|prep_for_form|max_length[2000]";
+		$rules['expense_note_default'] = "trim|prep_for_form|max_length[2000]";
 		$rules['currency_type'] 	= "trim|prep_for_form|max_length[20]";
 		$rules['currency_symbol'] 	= "ltrim|max_length[9]";
 		$rules['days_payment_due'] 	= "trim|prep_for_form|numeric|max_length[3]";
@@ -172,6 +174,7 @@ class Settings extends MY_Controller {
 		$fields['password_confirm']	= $this->lang->line('login_password_confirm');
 		$fields['logo'] 			= $this->lang->line('settings_logo');
 		$fields['invoice_note_default'] = $this->lang->line('settings_default_note');
+		$fields['expense_note_default'] = $this->lang->line('settings_default_note');
 		$fields['currency_type'] 	= $this->lang->line('settings_currency type');
 		$fields['currency_symbol'] 	= $this->lang->line('settings_currency symbol');
 		$fields['days_payment_due']	= $this->lang->line('settings_payment_days');

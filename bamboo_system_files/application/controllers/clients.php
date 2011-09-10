@@ -17,6 +17,7 @@ class Clients extends MY_Controller {
 		$data['clientList'] = $this->clients_model->getAllClients(); // activate the option
 		$data['extraHeadContent'] = "<link type=\"text/css\" rel=\"stylesheet\" href=\"" . base_url()."css/clients.css\" />\n";
 		$data['extraHeadContent'] .= "<script type=\"text/javascript\" src=\"" . base_url()."js/newinvoice.js\"></script>\n";
+		$data['extraHeadContent'] .= "<script type=\"text/javascript\" src=\"" . base_url()."js/newexpense.js\"></script>\n";
 		$data['extraHeadContent'] .= "<script type=\"text/javascript\" src=\"" . base_url()."js/clients.js\"></script>\n";
 
 		if ($this->session->flashdata('clientEdit'))
