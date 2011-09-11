@@ -443,6 +443,9 @@ class Install extends Controller {
 
 			$updates .= "<li>Upgrade to 0.8.9 success.</li>";
 		}
+
+		// regrab data, for the new update
+		$version = $this->db->get('settings')->row()->bambooinvoice_version;
 		
 		if ($version == '0.8.9')
 		{
