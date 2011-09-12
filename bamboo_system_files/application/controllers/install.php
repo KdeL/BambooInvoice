@@ -526,11 +526,11 @@ class Install extends Controller {
 			$this->dbforge->add_column('settings', $field);
 			
 			
-			$this->db->set('bambooinvoice_version', '0.9.1');
+			$this->db->set('bambooinvoice_version', '0.9.0');
 			$this->db->where('id', 1);
 			$this->db->update('settings');
 
-			$updates .= "<li>Upgrade to 0.9.1 success.</li>";			
+			$updates .= "<li>Upgrade to 0.9.0 success.</li>";			
 		}
 
 		$updates .= '</ul>';
