@@ -187,6 +187,8 @@ class Expenses extends MY_Controller {
 
 		$data['extraHeadContent'] = "<link type=\"text/css\" rel=\"stylesheet\" href=\"". base_url()."css/calendar.css\" />\n";
 		$data['extraHeadContent'] .= "<link type=\"text/css\" rel=\"stylesheet\" href=\"". base_url()."css/expense.css\" />\n";
+		$data['extraHeadContent'] .= "<script type=\"text/javascript\" src=\"". base_url()."js/newexpense.js\"></script>\n";
+		$data['extraHeadContent'] .= "<script type=\"text/javascript\" src=\"". base_url()."js/search.js\"></script>\n";
 		$data['extraHeadContent'] .= "<script type=\"text/javascript\">\nvar datePicker1 = \"".date("Y-m-d")."\";\nvar datePicker2 = \"".date("F j, Y")."\";\n\n</script>";
 		$data['extraHeadContent'] .= js_calendar_script('my_form');
 		$data['date_expense'] = date("Y-m-d");
@@ -233,8 +235,9 @@ class Expenses extends MY_Controller {
 		//$data['paymentHistory'] = $this->invoices_model->getInvoicePaymentHistory($id);
 		$data['expenseOptions'] = TRUE; // create expense options on sidebar
 		$data['company_logo'] = $this->_get_logo();
-		$data['page_title'] = 'Invoice Details';
-		
+		$data['page_title'] = 'Expense Details';
+		$data['vendorList'] = $this->vendors_model->getAllVendors(); // activate the option
+				
 		if(is_numeric($data['row']->client_id) && $data['row']->client_id <> 0)
 		{
 			$clientInfo = $this->clients_model->get_client_info($data['row']->client_id);
