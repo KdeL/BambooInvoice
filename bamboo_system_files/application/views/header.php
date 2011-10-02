@@ -130,6 +130,10 @@ lang_vendor_name = new String("<?php echo ($this->lang->line('vendors_name'));?>
 				<li><?php echo anchor('invoices/pdf/' . $row->id, $this->lang->line('menu_generate_pdf'), array('class' => 'emailpdf'));?></li>
 				<li id="invprintli"><?php echo anchor('', $this->lang->line('menu_print_invoice'), array('class' => 'invprint', 'onclick' => 'print(); return false;'));?></li>
 
+				<?php if ($row->amount_paid >= $row->total_with_tax): ?>
+					<li><?php echo anchor('invoices/receipt_pdf/' . $row->id, $this->lang->line('menu_generate_receipt_pdf'), array('class' => 'emailpdf'));?></li>
+				<?php endif; ?>
+
 				<?php if ($row->amount_paid < $row->total_with_tax): ?>
 					<li><?php echo anchor('invoices/edit/'.$row->id, $this->lang->line('menu_edit_invoice'), array('class' => 'invedit'));?></li>
 				<?php endif; ?>
